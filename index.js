@@ -1,32 +1,26 @@
 // index.js
 
-// Importing everything from tools.js
-import { greet, Animal, fetchData, promiseExample, createMap } from './tools.js';
+import { greet, Animal, fetchData, createMap } from './tools.js';
 
-// Test the greet function (Modularity)
-console.log(greet("Developer")); // Should print: Hello, Developer!
+// Testing the greet function
+console.log(greet('World')); // Output: Hello, World!
 
-// Test the Animal class
-const myAnimal = new Animal("Buddy");
-console.log(myAnimal.speak()); // Should print: Buddy makes a sound.
+// Testing the Animal class
+const dog = new Animal('Dog');
+console.log(dog.speak()); // Output: Dog makes a noise.
 
-// Test the async function that returns a Promise
-fetchData().then((result) => {
-  console.log(result); // Should print: Data fetched successfully via async!
-}).catch((error) => {
+// Testing the async function with Promise
+fetchData().then(data => {
+  console.log(data); // Output: Data fetched successfully!
+}).catch(error => {
   console.error(error);
 });
 
-// Test the explicit Promise example
-promiseExample().then((result) => {
-  console.log(result); // Should print: Promise resolved successfully!
-}).catch((error) => {
-  console.error(error);
-});
-
-// Test the Map function
+// Testing the Map function
 const map = createMap();
-console.log("Map contents:");
-for (const [key, value] of map) {
-  console.log(`${key}: ${value}`); // Prints each key-value pair from the map.
-}
+map.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+// Output:
+// key1: value1
+// key2: value2
